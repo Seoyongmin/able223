@@ -86,6 +86,7 @@ app.get('/board/:rid', function(req, res){
   var rid = req.params.rid;
   db.query(sql, {params:{rid:rid}}).then(function(board){
     res.render('board', {board:board[0]});
+    res.send('aa')
   })
 })
 
