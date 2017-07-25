@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  form(action='/board/insert' method='post')
+    div.form-group
+      label(for='title') 제목
+      input(type='text' name='title' class='form-control')
+    div.form-group
+      label(for='contents') 내용
+      input(type='text' name='contents' class='form-control input-lg')
+    input(type='submit' class='btn btn-primary')

@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h2= board.TITLE
+  table.table
+    tbody
+      tr
+        td
+          = board.CONTENTS
+    - rid = encodeURIComponent(board['@rid'])
+  a(href='/board/update/' + rid class='btn btn-primary') 수정
+  a(href='/board/delete/' + rid class='btn btn-primary') 삭제
+  a(href='/board/list' class='btn btn-primary') 목록

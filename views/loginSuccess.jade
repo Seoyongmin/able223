@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h2 글목록
+  table.table
+    thead
+      tr
+        th 제목
+    tbody
+      each board in boardList
+        - rid = encodeURIComponent(board['@rid'])
+        tr
+          td
+            a(href='/board/' + rid)= board.TITLE
+  a(href='/board/insert' class='btn btn-primary') 글작성
