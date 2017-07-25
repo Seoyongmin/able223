@@ -7,6 +7,9 @@ app.listen(3000, function(){
 })
 app.locals.pretty = true;
 
+//정적파일 사용
+app.use(express.static('public'));
+
 // body-parser 사용
 app.use(bodyParser.urlencoded({extended: false}));
 
