@@ -1,17 +1,23 @@
-// 기본설정
+/******************************************************
+ * 기본설정
+ ******************************************************/
 var express = require('express');
 var app = express();
-var bodyParser = require('body-parser');
+
+//3000포트 연결
 app.listen(3000, function(){
   console.log('Connected!!!');
 })
+
+//post방식 파라미터 전달을 위한 bodyParser
+var bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({extended: false}));
+
+//html 태그 정렬
 app.locals.pretty = true;
 
 //정적파일 사용
 app.use(express.static('public'));
-
-// body-parser 사용
-app.use(bodyParser.urlencoded({extended: false}));
 
 // 템플릿 엔진 사용
 app.set('view engine', 'jade');
@@ -27,9 +33,11 @@ var server = OrientDB({
 });
 var db = server.use('bed');
 
-//라우터
+/******************************************************
+ * 라우터
+ ******************************************************/
 app.get('/', function(req, res){
-  res.render('login');
+  res.render('main');
 })
 
 app.post('/login', function(req, res){
@@ -52,7 +60,9 @@ app.post('/login', function(req, res){
         res.render('loginSuccess', {boardList:boardList});
       })
     }else{
-      res.send('사용자 ID(' + id + ')가 존재하지 않거나 비밀번호가 틀립니다.');
+      res.send(
+        '<script type="text/javascript">alert("ID가 존재하지 않거나 비밀번호가 틀립니다.");</script>'
+              );
     }
   });
 })

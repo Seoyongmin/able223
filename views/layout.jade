@@ -1,8 +1,37 @@
 doctype html
 html
   head
-    link(rel='stylesheet', href='/css/bootstrap.min.css')
+    meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1')
-  body
-    div.container
+    link(rel='stylesheet', href='/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/css/myCss.css')
+    link(href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css')
+    script(src='/js/jquery.min.js')
+    script(src='/js/bootstrap.min.js')
+
+  body(id='myPage' data-spy='scroll' data-target='.navbar' data-offset='50')
+    nav.navbar.navbar-default.navbar-fixed-top
+      div.container-fluid
+        div.navbar-header
+          button(type='button' class='navbar-toggle' data-toggle='collapse' data-target='#myNabvar')
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a(class='navbar-brand' href="#myPage") BE DEVELOPER
+        div(class='collapse navbar-collapse' id='myNavbar')
+          ul.nav.navbar-nav.navbar-right
+            li.dropdown
+              a(class='dropdown-toggle' data-toggle='dropdown' href='#') MENU
+                span.caret
+              ul.dropdown-menu
+                li
+                  a(href='#') HTML
+                li
+                  a(href='#') SQL
+                li
+                  a(href='/board/list') BOARD
+            li
+              a(href='#') LOGIN
+
+    div.contents
       block content

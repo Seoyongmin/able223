@@ -13,6 +13,7 @@
     "express": "^4.15.3",
     "jade": "^1.11.0",
     "jade-bootstrap": "^1.0.14",
+    "jquery": "^3.2.1",
     "orientjs": "^2.2.6",
     "supervisor": "^0.12.0"
   }
